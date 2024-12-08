@@ -7,5 +7,5 @@ session?
 # 12/3/24
 Started working on the menu of the project very first commit initial commit
 
-#12/04/24
+# 12/04/24
 I had come new thought on my menu and how i want it to look like, and my functions, but havent implemented them yet. I planed to get the menu, and unimplemented functions. I plan to implenet the functions and btree next, as I completed my goal for this session
