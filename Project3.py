@@ -11,7 +11,7 @@ class BTreeNode:
         self.keyCount = 0
 
 class BTree:
-    BLOCK_SIZE = 512
+    BLOCKSIZE = 512
     MAGIC = b'4337PRJ3'
 
     def __init__(self, filename=None):
@@ -20,7 +20,9 @@ class BTree:
         self.nextId = 1
         self.filename = filename
 
-    
+
+
+
 
     def createFile(self, filename):
         self.filename = filename
@@ -38,10 +40,10 @@ class BTree:
             userFile.write(self.intToByte(self.rootId))
             userFile.write(self.intToByte(self.nextId))
             
-            userFile.write(b'\x00' * (self.BLOCK_SIZE - 24))
+            userFile.write(b'\x00' * (self.BLOCKSIZE - 24))
             
         self.openFile(filename)
-        print(f"{filename} created and opened.")
+        print(f"{filename} created and opened.\n")
 
 
 
@@ -50,14 +52,14 @@ class BTree:
 
     def openFile(self, filename):
         if not os.path.exists(filename):
-            print(f"{filename} does not exist.")
+            print(f"{filename} does not exist.\n")
             return
         
         self.filename = filename
         with open(filename, 'rb') as userFile:
             magic = userFile.read(8)
             if magic != self.MAGIC:
-                print("Error invalid File")
+                print("Error invalid File\n")
                 return
             
         self.file = open(filename, 'r+b')
@@ -68,15 +70,14 @@ class BTree:
         self.nextId = self.byteToInt(self.file.read(8))
         
         
-        print(f"{filename} opened")
+        print(f"{filename} opened\n")
 
 
 
-    
 
     def readNode(self, blockId):
         
-        self.file.seek(blockId * self.BLOCK_SIZE)
+        self.file.seek(blockId * self.BLOCKSIZE)
         
         node = BTreeNode()
         
@@ -107,7 +108,7 @@ class BTree:
 
     def writeNode(self, node):
         
-        self.file.seek(node.id * self.BLOCK_SIZE)
+        self.file.seek(node.id * self.BLOCKSIZE)
         
         self.file.write(self.intToByte(node.id))
         self.file.write(self.intToByte(node.parentId))
@@ -128,9 +129,12 @@ class BTree:
 
 
 
+
+
+
     def insert(self, key, value):
         if not self.file:
-            print("Error no file is opened.")
+            print("Error no file is opened.\n")
             return
     
     
@@ -198,12 +202,16 @@ class BTree:
             
         else:
             root = BTreeNode()
+            
             root.id = self.nextId
             self.nextId += 1
+            
             root.keys[0] = key
             root.values[0] = value
+            
             root.keyCount = 1
             self.rootId = root.id
+            
             self.writeNode(root)
             self.file.seek(8)
             self.file.write(self.intToByte(self.rootId))
@@ -214,11 +222,9 @@ class BTree:
 
 
 
-    
-
     def search(self, key):
         if not self.file:
-            print("Error no file is opened")
+            print("Error no file is opened\n")
             return
         current = self.readNode(self.rootId)
         while current:
@@ -241,11 +247,9 @@ class BTree:
                     current = self.readNode(current.children[keyCount])
                 else:
                     current = None
-        print("Key not found.")
+        print("Key not found.\n")
 
 
-
-    
 
     def insertKey(self, node, key, value):
         i = node.keyCount - 1
@@ -253,7 +257,7 @@ class BTree:
         
         if node.children[0] == 0:
             if node.keyCount == 19:
-                print(f"Full Node.")
+                print(f"Full Node.\n")
                 return
             
             while i >= 0 and key < node.keys[i]:
@@ -320,13 +324,14 @@ class BTree:
     
     
     
+    
     def printTree(self, blockId=None,):
         
         if blockId is None:
             blockId = self.rootId
             
         if blockId == 0:
-            print("Nothing in the Tree")
+            print("Nothing in the Tree\n")
             return
         
         node = self.readNode(blockId) 
@@ -362,10 +367,10 @@ class BTree:
     
     def load(self, filename):
         if not self.file:
-            print("Error no files are opened.")
+            print("Error no files are opened.\n")
             return
         if not os.path.exists(filename):
-            print(f"Error {filename} does not exist.")
+            print(f"Error {filename} does not exist.\n")
             return
         with open(filename, 'r') as loadFile:
             
@@ -373,11 +378,38 @@ class BTree:
                 key, value = line.strip().split(",")
                 self.insert(int(key), int(value))
                 
-        print(f"Loaded {filename}")
+        print(f"Loaded {filename}\n")
 
 
 
 
+
+    
+    def traverse(self, nodeId, extractFile):
+        node = self.readNode(nodeId)
+        
+        for i in range(node.keyCount):
+            extractFile.write(f"{node.keys[i]},{node.values[i]}\n")
+            
+        
+        for childId in node.children:
+            
+            if childId != 0:
+                self.traverse(childId, extractFile)
+    
+
+
+    
+    def extract(self, filename):
+        
+        if not self.file:
+            print("Error: No file is open\n")
+            return
+    
+        with open(filename, 'w') as extractFile:
+            self.traverse(self.rootId, extractFile)
+    
+        print(f"Extracted to {filename}\n")
 
 
 
@@ -403,6 +435,9 @@ def main():
         elif command == 'load':
             filename = input("Enter filename to load from: ")
             tree.load(filename)
+        elif command == 'extract':
+            filename = input("Enter filename to extract to: ")
+            tree.extract(filename)
         elif command == 'quit':
             break
         else:
