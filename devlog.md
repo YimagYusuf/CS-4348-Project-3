@@ -1,15 +1,3 @@
-Give your thoughts so far. Have you had new thoughts about the project since the last session? It is alright for this par to be empty if there have been no new developments between
-session, but you should try to fill it in when you can.
-What do you plan to accomplish this session? Layout a plan, as detailed as possible. What
-do you plan to change? What do you plan to implement next? What is your goal for this
-session?
-
-Once done for the session, add new entry to your devlog. The heading should be the current
-date and time. Reflect on the session. Did you encounter an problems you have not already
-wrote about? Did you accomplish your goal for this session? If not, why? Did you accomplish
-more you have not written about? Record it now. What are you thinking about doing the next
-session?
-
 
 
 (Added these 2 later than I did it (12/3 and 12/4), I forgot to add them then, so I added them now)
@@ -25,7 +13,8 @@ I had come new thought on my menu and how i want it to look like, and my functio
 
 B.I havent encountered any problem this session as I had it be a pretty light session. I acomplished my goal of creating the menu and basic layout of my classes. I havent accomplished more than what I have written about as I kept this day kind of light. In the next session I am thinking about implementing most of the functions like create, open, seach, insert, print, and leaving soem of them unfinished for now. 
 
-
+<br>
+<br>
 
 # 12/07/24 @ 5pm
 
@@ -35,6 +24,8 @@ A. I havent really had any new thoughts on it so far. I have just been trying to
 
 B. I have encountered lots of problems when I havent wrote about. For example getting the Btree to sel manage itself was really hard. Things werent adjusting, the splitting wasnt working, I couldnt figure out how to get the values and push it to another node for a split. i did infact accomplish my goal, I ended up pushing through my problems, and figuring out how to do it. I haven't accomplished more that I havent written, and in the next session I hope to have load and extract done and finish this project.
 
+<br>
+<br>
 
 # 12/08/24 @ 5pm
 
@@ -45,6 +36,8 @@ A. I had some new thoughts on how I was gonna fix the be tree to split and rearr
 
 B. I encountered lots of problem in this time span, espiecially with fixing the btree, along with figuring out how to get search go through nodes key, and go to their children. I accomplished my goal of finishing the insert and search with children in the tree. I haven't accomplished more than what I have writted about, and for the next session I plan on implementing load and extract to finish up the project. 
 
+<br>
+<br>
 
 # 12/08/24 @ 9pm
 
@@ -55,7 +48,16 @@ A. I havent had any new thoughts so far. I plan to accomplish the load method fo
 
 B.I didnt encounter any really big problems with this part. I accomplished my goal and finished the loading part of the project. I havent accomplished anymore than I have written about. For next session I plan on finishing the extract part of the project, and finishing the project.
 
+<br>
+<br>
 
 # 12/08/24 @ 10:40pm
 
 A. I haven't had any new thoughts from when I last worked on it. I plan to finish the extract and have the whole project completed. I plan to create the function, and write all the keys and values into the selected user file. I plan to implement a traverse function inorder to traverse through the tree and write the keys and values into the file. My goal is to finish the extract and the project. 
+
+
+# 12/08/24 @ 11:20 pm
+
+B. I didn't encounter any problems as I already finished load, search, and print, which made it easier to do this step. I accomplished my goal of finishing extract and completing the project. I haven't accomplished any more than I have written as it was the last step to the project. I have nothing planned for next session as I am done.
+
+
