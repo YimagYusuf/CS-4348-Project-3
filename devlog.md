@@ -34,3 +34,10 @@ A. I havent really had any new thoughts on it so far. I have just been trying to
 # 12/08/24 @ 2:30 am
 
 B. I have encountered lots of problems when I havent wrote about. For example getting the Btree to sel manage itself was really hard. Things werent adjusting, the splitting wasnt working, I couldnt figure out how to get the values and push it to another node for a split. i did infact accomplish my goal, I ended up pushing through my problems, and figuring out how to do it. I haven't accomplished more that I havent written, and in the next session I hope to have load and extract done and finish this project.
+
+
+# 12/08/24 @ 5pm
+
+A. I had some new thoughts on how I was gonna fix the be tree to split and rearrange itself. I plan to finish the b-tree managing for this session. I plan to change the insert to be able to split and create children for when its over 19 keys. I also plan to have search be able to search in children nodes as well. My goal is to finish these menetioned implementations, then move on to the load and extract. 
+
+
