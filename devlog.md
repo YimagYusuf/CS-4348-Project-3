@@ -50,14 +50,12 @@ B. I encountered lots of problem in this time span, espiecially with fixing the 
 
 A. I havent had any new thoughts so far. I plan to accomplish the load method for this session. I plan to get the file from the user, then check if theres a file. I will then go line by line splitting keys and values seperated by a comma. Once i get the pairs I will put it through my insert function. I will then next plan to implement the extract most likely next session. My goal for this session is to have the project fully functioning except the extract, so basically completing the load method. 
 
-Once done for the session, add new entry to your devlog. The heading should be the current
-date and time. Reflect on the session. Did you encounter an problems you have not already
-wrote about? Did you accomplish your goal for this session? If not, why? Did you accomplish
-more you have not written about? Record it now. What are you thinking about doing the next
-session?
-# 12/08/ @ 10:30pm 
+
+# 12/08/24 @ 10:30pm 
 
 B.I didnt encounter any really big problems with this part. I accomplished my goal and finished the loading part of the project. I havent accomplished anymore than I have written about. For next session I plan on finishing the extract part of the project, and finishing the project.
 
 
+# 12/08/24 @ 10:40pm
 
+A. I haven't had any new thoughts from when I last worked on it. I plan to finish the extract and have the whole project completed. I plan to create the function, and write all the keys and values into the selected user file. I plan to implement a traverse function inorder to traverse through the tree and write the keys and values into the file. My goal is to finish the extract and the project. 
