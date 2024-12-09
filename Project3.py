@@ -1,6 +1,5 @@
 import os
-import struct
-import sys
+
 
 class BTreeNode:
     def __init__(self):
@@ -21,9 +20,7 @@ class BTree:
         self.nextId = 1
         self.filename = filename
 
-
-
-
+    
 
     def createFile(self, filename):
         self.filename = filename
@@ -75,6 +72,7 @@ class BTree:
 
 
 
+    
 
     def readNode(self, blockId):
         
@@ -130,13 +128,11 @@ class BTree:
 
 
 
-
-
-
     def insert(self, key, value):
         if not self.file:
-            print("Error: No file is opened.")
+            print("Error no file is opened.")
             return
+    
     
         if self.rootId != 0:  
             
@@ -218,6 +214,8 @@ class BTree:
 
 
 
+    
+
     def search(self, key):
         if not self.file:
             print("Error no file is opened")
@@ -227,7 +225,7 @@ class BTree:
             found = False
             for i in range(current.keyCount):
                 if key == current.keys[i]:
-                    print(f"{key}, {current.values[i]}")
+                    print(f"Found {key} = {current.values[i]}")
                     return
                 if key < current.keys[i]:
                     childIndex = current.children[i]
@@ -246,6 +244,8 @@ class BTree:
         print("Key not found.")
 
 
+
+    
 
     def insertKey(self, node, key, value):
         i = node.keyCount - 1
@@ -356,6 +356,25 @@ class BTree:
         answer = int.from_bytes(value, 'big')
         return answer
         
+        
+    
+    
+    
+    def load(self, filename):
+        if not self.file:
+            print("Error no files are opened.")
+            return
+        if not os.path.exists(filename):
+            print(f"Error {filename} does not exist.")
+            return
+        with open(filename, 'r') as loadFile:
+            
+            for line in loadFile:
+                key, value = line.strip().split(",")
+                self.insert(int(key), int(value))
+                
+        print(f"Loaded {filename}")
+
 
 
 
@@ -365,7 +384,7 @@ class BTree:
 def main():
     tree = BTree()
     while True:
-        command = input("Create, open, insert, search, print, quit\nEnter command: ").lower()
+        command = input("Create, open, insert, search, print, load, extract, quit\nEnter command: ").lower()
         if command == 'create':
             filename = input("Enter filename: ")
             tree.createFile(filename)
@@ -381,6 +400,9 @@ def main():
             tree.search(key)
         elif command == 'print':
             tree.printTree()
+        elif command == 'load':
+            filename = input("Enter filename to load from: ")
+            tree.load(filename)
         elif command == 'quit':
             break
         else:
