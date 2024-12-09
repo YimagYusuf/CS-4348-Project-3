@@ -41,3 +41,8 @@ B. I have encountered lots of problems when I havent wrote about. For example ge
 A. I had some new thoughts on how I was gonna fix the be tree to split and rearrange itself. I plan to finish the b-tree managing for this session. I plan to change the insert to be able to split and create children for when its over 19 keys. I also plan to have search be able to search in children nodes as well. My goal is to finish these menetioned implementations, then move on to the load and extract. 
 
 
+# 12/08/24 @ 8:30 pm
+
+B. I encountered lots of problem in this time span, espiecially with fixing the btree, along with figuring out how to get search go through nodes key, and go to their children. I accomplished my goal of finishing the insert and search with children in the tree. I haven't accomplished more than what I have writted about, and for the next session I plan on implementing load and extract to finish up the project. 
+
+
