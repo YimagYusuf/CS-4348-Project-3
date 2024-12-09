@@ -46,3 +46,9 @@ A. I had some new thoughts on how I was gonna fix the be tree to split and rearr
 B. I encountered lots of problem in this time span, espiecially with fixing the btree, along with figuring out how to get search go through nodes key, and go to their children. I accomplished my goal of finishing the insert and search with children in the tree. I haven't accomplished more than what I have writted about, and for the next session I plan on implementing load and extract to finish up the project. 
 
 
+# 12/08/24 @ 9pm
+
+A. I havent had any new thoughts so far. I plan to accomplish the load method for this session. I plan to get the file from the user, then check if theres a file. I will then go line by line splitting keys and values seperated by a comma. Once i get the pairs I will put it through my insert function. I will then next plan to implement the extract most likely next session. My goal for this session is to have the project fully functioning except the extract, so basically completing the load method. 
+
+
+
